@@ -1,0 +1,10 @@
+.catalog:
+  name: "PencilBlue"
+  version: "v0.1"
+  description: "Business Class Content Management For Node.js"
+  uuid: PencilBlue-0
+  minimum_rancher_version: v0.51.0
+  questions:
+
+
+pencilblue:

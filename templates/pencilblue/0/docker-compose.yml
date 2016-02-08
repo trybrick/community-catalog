@@ -1,0 +1,6 @@
+pencilblue:
+  image: brickinc/pencilblue
+  links:
+    - db:mongo-cluster
+  ports:
+    - 80:80
