@@ -1,6 +1,28 @@
 pencilblue:
   image: brickinc/pencilblue
   links:
-    - db:mongo-cluster
+    - db:mongo
+    - redis:redis
   ports:
-    - 80:80
+    - 80:8080
+  restart: always
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
+
+mongo:
+  image: mongo
+  restart: always
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
+
+redis:
+  restart: always
+  tty: true
+  image: redis:3.0.3
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
