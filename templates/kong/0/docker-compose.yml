@@ -24,7 +24,7 @@ kong:
     io.rancher.container.hostname_override: container_name
 
 cssandra:
-  image: mashape/cassandra
+  image: cassandra
   restart: always
   tty: true
   stdin_open: true
