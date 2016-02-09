@@ -1,0 +1,32 @@
+kong-ui:
+  image: brickinc/kong-dashboard
+  links:
+    - kong:kong
+  restart: always
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
+  environment:
+    - KONG_URL=http://kong:8001
+
+kong:
+  image: mashape/kong
+  links:
+    - cassandra:cassandra
+  ports:
+    - 8000:8000
+    - 8443:8443
+  restart: always
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
+
+cssandra:
+  image: mashape/cassandra
+  restart: always
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
