@@ -23,7 +23,7 @@ kong:
   labels:
     io.rancher.container.hostname_override: container_name
 
-cssandra:
+cassandra:
   image: cassandra
   restart: always
   tty: true
