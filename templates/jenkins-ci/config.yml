@@ -1,5 +1,5 @@
-name: Jenkins
+name: Jenkins with AWS CLI
 description: |
-  Jenkins CI server (LTS)
-version: 1.642.1-rancher1
+  Jenkins CI server with AWS CLI
+version: 1.642.1-brick0
 category: Continuous Integration

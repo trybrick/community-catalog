@@ -1,8 +1,8 @@
 .catalog:
   name: Jenkins
-  version: 1.642.1-rancher1
+  version: 1.642.1-brick0
   description: |
-    Jenkins CI management server.
+    Jenkins CI management server with AWS CLI.
   questions:
     - variable: "plugins"
       type: "multiline"
@@ -33,6 +33,7 @@
         jobConfigHistory
         oauth-credentials 
         workflow-aggregator
+        nodejs
 jenkins-primary:
   metadata:
     plugins: |
