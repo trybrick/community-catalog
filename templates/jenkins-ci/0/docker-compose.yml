@@ -1,0 +1,20 @@
+jenkins-primary:
+  image: "jenkins:1.642.1"
+  ports:
+    - "8080:8080"
+  labels:
+    io.rancher.sidekicks: jenkins-plugins,jenkins-datavolume
+    io.rancher.container.hostname_override: container_name
+    # Make jenkins only run containers on hosts with a dock=6 label
+    io.rancher.scheduler.affinity:host_label: dock=6
+  volumes_from:
+    - jenkins-plugins
+    - jenkins-datavolume
+  entrypoint: /usr/share/jenkins/rancher/jenkins.sh
+jenkins-plugins:
+  image: rancher/jenkins-plugins:v0.1.1
+jenkins-datavolume:
+  image: "jenkins:1.642.1"
+  labels:
+    io.rancher.container.start_once: true
+  entrypoint: /bin/true
