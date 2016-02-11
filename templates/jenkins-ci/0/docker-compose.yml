@@ -7,11 +7,12 @@ jenkins-primary:
     io.rancher.container.hostname_override: container_name
     # Make jenkins only run containers on hosts with a dock=6 label
     io.rancher.scheduler.affinity:host_label: dock=6
-  volume_driver: convoy
-  volumes:
-    - jenkins_ci:/var/jenkins_home
   volumes_from:
     - jenkins-plugins
+    - jenkins-datavolume
   entrypoint: /usr/share/jenkins/rancher/jenkins.sh
-jenkins-plugins:
-  image: rancher/jenkins-plugins:v0.1.1
+jenkins-datavolume:
+  image: "brickinc/docker-jenkins-awscli"
+  labels:
+    io.rancher.container.start_once: true
+  entrypoint: /bin/true
