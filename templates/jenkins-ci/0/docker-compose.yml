@@ -9,7 +9,7 @@ jenkins-primary:
     io.rancher.scheduler.affinity:host_label: dock=6
   volume_driver: convoy
   volumes:
-    - jenkins:/var/jenkins_home
+    - jenkins_ci:/var/jenkins_home
   volumes_from:
     - jenkins-plugins
   entrypoint: /usr/share/jenkins/rancher/jenkins.sh
