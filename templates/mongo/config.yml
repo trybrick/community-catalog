@@ -1,0 +1,5 @@
+name: MongoDB
+description: |
+  Single MongoDB database
+version: v0.1
+category: database

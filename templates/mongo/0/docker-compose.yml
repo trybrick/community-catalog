@@ -1,0 +1,22 @@
+mongo:
+  image: mongo
+  restart: always
+  tty: true
+  stdin_open: true
+  volumes_from:
+    - mongo-datavolume
+  labels:
+    io.rancher.sidekicks: mongo-datavolume
+    io.rancher.container.hostname_override: container_name
+    # Make jenkins only run containers on hosts with a dock=1 label
+    io.rancher.scheduler.affinity:host_label: dock=1
+
+mongo-datavolume:
+  net: none
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.start_once: true
+  volumes:
+    - /data/db
+  entrypoint: /bin/true
+  image: busybox

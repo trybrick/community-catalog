@@ -38,7 +38,6 @@ pencilblue-datavolume:
   entrypoint: /bin/true
   image: busybox
 
-
 Redis:
   image: redis
   tty: true
