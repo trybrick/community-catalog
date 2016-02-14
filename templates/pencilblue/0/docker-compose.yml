@@ -1,28 +1,43 @@
-pencilblue:
+PencilBlue:
   image: brickinc/pencilblue
   links:
-    - db:mongo
-    - redis:redis
+    - Mongo:mongo
+    - Redis:redis
   ports:
     - 80:8080
   restart: always
   tty: true
   stdin_open: true
+  volumes:
+    - pencilblue-datavolume/pb:/root/pb
   labels:
     io.rancher.container.hostname_override: container_name
 
-mongo:
+Mongo:
   image: mongo
   restart: always
   tty: true
   stdin_open: true
+  volumes_from:
+    - pencilblue-datavolume
+  volumes:
+    - pencilblue-datavolume/mongo:/data/db
   labels:
     io.rancher.container.hostname_override: container_name
 
-redis:
-  restart: always
+Redis:
+  image: redis
   tty: true
-  image: redis:3.0.3
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
+
+pencilblue-datavolume:
+  net: none
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.start_once: true
+  volumes:
+    - /data
+  entrypoint: /bin/true
+  image: busybox

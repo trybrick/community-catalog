@@ -5,6 +5,20 @@
   uuid: PencilBlue-0
   minimum_rancher_version: v0.51.0
   questions:
+    - variable: "PB_SITE_ROOT"
+      label: "Pencilblue multisite url"
+      description: "Pencilblue multisite url."
+      type: "string"
+      default: "http://admin.stage.brickinc.net" 
+      required: true
+    - variable: "PB_REDIS_HOST"
+      label: "Pencilblue redis host"
+      description: "Pencilblue redis host"
+      type: "string"
+      default: "redis" 
+      required: true
 
-
-pencilblue:
+Redis:
+  scale: 1
+Mongo:
+  scale: 1
