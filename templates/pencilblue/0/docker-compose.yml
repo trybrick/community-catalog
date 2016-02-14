@@ -11,7 +11,10 @@ PencilBlue:
   volumes:
     - pencilblue-datavolume/pb:/root/pb
   labels:
+    io.rancher.sidekicks: Mongo,pencilblue-datavolume
     io.rancher.container.hostname_override: container_name
+    # Make jenkins only run containers on hosts with a dock=1 label
+    io.rancher.scheduler.affinity:host_label: dock=1
 
 Mongo:
   image: mongo
@@ -25,13 +28,6 @@ Mongo:
   labels:
     io.rancher.container.hostname_override: container_name
 
-Redis:
-  image: redis
-  tty: true
-  stdin_open: true
-  labels:
-    io.rancher.container.hostname_override: container_name
-
 pencilblue-datavolume:
   net: none
   labels:
@@ -41,3 +37,11 @@ pencilblue-datavolume:
     - /data
   entrypoint: /bin/true
   image: busybox
+
+
+Redis:
+  image: redis
+  tty: true
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
