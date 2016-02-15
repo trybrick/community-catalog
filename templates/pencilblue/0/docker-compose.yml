@@ -14,8 +14,10 @@ PencilBlue:
     # Make jenkins only run containers on hosts with a dock=1 label
     io.rancher.scheduler.affinity:host_label: dock=1
   environment:
-    - PB_REDIS_HOST=${PB_REDIS_HOST}
-    - PB_SITE_PORT=${PB_SITE_PORT}
+    PB_REDIS_HOST=${PB_REDIS_HOST}
+    PB_SITE_PORT=${PB_SITE_PORT}
+  ports:
+    - "80:80"
 
 pencilblue-datavolume:
   net: none
