@@ -11,6 +11,12 @@
       type: "string"
       default: "redis" 
       required: true
+    - variable: "PB_SITE_PORT"
+      label: "Pencilblue site port"
+      description: "Pencilblue site port"
+      type: "string"
+      default: "80" 
+      required: true
 
 Redis:
   scale: 1
