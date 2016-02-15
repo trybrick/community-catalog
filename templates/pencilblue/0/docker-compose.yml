@@ -1,32 +1,20 @@
 PencilBlue:
-  image: brickinc/pencilblue
+  image: brickinc/brickpb
   links:
-    - Mongo:mongo
+    - mongo:mongo
     - Redis:redis
-  ports:
-    - 80:8080
   restart: always
   tty: true
   stdin_open: true
   volumes:
-    - pencilblue-datavolume/pb:/root/pb
+    - pencilblue-datavolume:/app
   labels:
-    io.rancher.sidekicks: Mongo,pencilblue-datavolume
+    io.rancher.sidekicks: pencilblue-datavolume
     io.rancher.container.hostname_override: container_name
     # Make jenkins only run containers on hosts with a dock=1 label
     io.rancher.scheduler.affinity:host_label: dock=1
-
-Mongo:
-  image: mongo
-  restart: always
-  tty: true
-  stdin_open: true
-  volumes_from:
-    - pencilblue-datavolume
-  volumes:
-    - pencilblue-datavolume/mongo:/data/db
-  labels:
-    io.rancher.container.hostname_override: container_name
+  environment:
+    - PB_REDIS_HOST=${PB_REDIS_HOST}
 
 pencilblue-datavolume:
   net: none
@@ -34,7 +22,7 @@ pencilblue-datavolume:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - /data
+    - /app
   entrypoint: /bin/true
   image: busybox
 
