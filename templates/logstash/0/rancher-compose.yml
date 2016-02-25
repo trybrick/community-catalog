@@ -35,6 +35,10 @@
           host => "elasticsearch"
           protocol => "http"
           index => "logstash-%{+YYYY.MM.dd}"
+          doc_as_upsert => true
+          flush_size => 5000
+          workers => 4
+          document_id => "%{Id}"
         }
     - variable: "elasticsearch_link"
       description: |
