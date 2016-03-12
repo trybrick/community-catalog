@@ -17,6 +17,12 @@
       type: "string"
       default: "80" 
       required: true
+    - variable: "host_label"
+      description: "Hosts with label to deploy PencilBlue"
+      label: "Host label:"
+      required: true
+      default: "dock=1"
+      type: "string"
 
 Redis:
   scale: 1

@@ -33,7 +33,14 @@
         jobConfigHistory
         oauth-credentials 
         workflow-aggregator
-        nodejs
+
+    - variable: "host_label"
+      description: "Hosts with label to deploy jenkins"
+      label: "Host label:"
+      required: true
+      default: "dock=6"
+      type: "string"
+
 jenkins-primary:
   metadata:
     plugins: |

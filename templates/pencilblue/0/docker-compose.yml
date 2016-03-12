@@ -11,8 +11,7 @@ PencilBlue:
   labels:
     io.rancher.sidekicks: pencilblue-datavolume
     io.rancher.container.hostname_override: container_name
-    # Make jenkins only run containers on hosts with a dock=1 label
-    io.rancher.scheduler.affinity:host_label: dock=1
+    io.rancher.scheduler.affinity:host_label: ${host_label}
   environment:
     - PB_REDIS_HOST=${PB_REDIS_HOST}
     - PB_SITE_PORT=${PB_SITE_PORT}
