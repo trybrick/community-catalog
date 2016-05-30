@@ -1,0 +1,14 @@
+.catalog:
+  name: "TeamSpeak"
+  version: "v3"
+  description: "TeamSpeak service"
+  uuid: TeamSpeak-0
+  minimum_rancher_version: v1.0.0
+  questions:
+    - variable: "host_label"
+      description: "Hosts with label to deploy TeamSpeak"
+      label: "Host label:"
+      required: true
+      default: "dock=bart"
+      type: "string"
+teamspeak:
