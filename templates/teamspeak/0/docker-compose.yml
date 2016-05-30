@@ -6,9 +6,9 @@ teamspeak:
   volumes_from:
     - teamspeak-datavolume
   ports:
-    - "9987/udp"
-    - "30033/tcp"
-    - "10011/tcp"
+    - "9987:9987/udp"
+    - "30033:30033"
+    - "10011:10011"
   labels:
     io.rancher.sidekicks: teamspeak-datavolume
     io.rancher.container.hostname_override: container_name

@@ -1,6 +1,6 @@
 .catalog:
   name: "TeamSpeak"
-  version: "v3.0.1"
+  version: "v3.0.2"
   description: "TeamSpeak service"
   uuid: TeamSpeak-0
   minimum_rancher_version: v1.0.0
