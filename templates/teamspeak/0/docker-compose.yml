@@ -15,7 +15,6 @@ teamspeak:
     io.rancher.scheduler.affinity:host_label: ${host_label}
 
 teamspeak-datavolume:
-  image: devalx/docker-teamspeak3:latest
   net: none
   labels:
     io.rancher.container.hostname_override: container_name
@@ -23,4 +22,4 @@ teamspeak-datavolume:
   volumes:
     - /home/ts3/data
   entrypoint: /bin/true
-  image: busybox
+  image: devalx/docker-teamspeak3:latest
