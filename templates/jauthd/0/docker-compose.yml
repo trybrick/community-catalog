@@ -1,0 +1,40 @@
+redis:
+  restart: always
+  tty: true
+  image: redis:3.0.7
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name
+jauthd:
+  restart: always
+  tty: true
+  command:
+  - node
+  - server.js
+  ports:
+    - "${public_port}:8080"
+  image: niiknow/jauthd
+  environment:
+    PORT: 8080
+    AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+    AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+    AWS_REGION: "${AWS_REGION}"
+    AWS_BUCKET: "${AWS_BUCKET}"
+    REDIS_URL: "${REDIS_URL}"
+    JAUTHD_STORAGE: "${JAUTHD_STORAGE}"
+    JAUTHD_JWT: "${JAUTHD_JWT}"
+    JAUTHD_SMTPFROM: "${JAUTHD_SMTPFROM}"
+    JAUTHD_SMTPPASS: "${JAUTHD_SMTPPASS}"
+    JAUTHD_SMTPPORT: "${JAUTHD_SMTPPORT}"
+    JAUTHD_SMTPSERVER: "${JAUTHD_SMTPSERVER}"
+    JAUTHD_SMTPUSER: "${JAUTHD_SMTPUSER}"
+    NODE_COOKIE_KEYS: "${NODE_COOKIE_KEYS}"
+    JAUTHD_EMAILVERIFY: ${JAUTHD_EMAILVERIFY}
+    JAUTHD_APP: "${JAUTHD_APP}"
+    GOOGLE_SECRET: "${GOOGLE_SECRET}"
+    FACEBOOK_SECRET: "${FACEBOOK_SECRET}"
+  links:
+  - redis:redis
+  stdin_open: true
+  labels:
+    io.rancher.container.hostname_override: container_name

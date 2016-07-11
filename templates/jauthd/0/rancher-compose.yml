@@ -1,0 +1,122 @@
+.catalog:
+  name: "jauthd"
+  version: "1.0.2-rancher"
+  description: "jauthd: simple jwtoken auth server"
+  uuid: jauthd-0
+  questions:
+    - variable: "public_port"
+      description: |
+        jauthd external/public port
+      label: "public port"
+      type: "int"
+      required: true
+      default: '9000'
+    - variable: "JAUTHD_STORAGE"
+      description: "profile backed storage type"
+      label: "storage type"
+      type: enum
+      required: true
+      options:
+        - s3
+        - redis
+        - azsTable
+        - fileStore
+        - waterline
+    - variable: "JAUTHD_JWT"
+      description: "jwt secret use for encrypting the token"
+      label: "jwt secret"
+      type: "multiline"
+      required: true
+      default: |
+        { "secret": "something-really-really-random-here" }
+    - variable: "REDIS_URL"
+      description: "Redis server url for token caching and/or profile backend storage"
+      label: "REDIS_URL"
+      type: "string"
+      required: false
+      default: "http://redis:6379"
+    - variable: "AWS_ACCESS_KEY_ID"
+      description: "Amazon AWS access id with s3 bucket access"
+      label: "AWS_ACCESS_KEY_ID"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "AWS_SECRET_ACCESS_KEY"
+      description: "Amazon AWS access secret"
+      label: "AWS_SECRET_ACCESS_KEY"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "AWS_REGION"
+      description: "Amazon AWS region for profile backed data"
+      label: "AWS_REGION"
+      type: "string"
+      required: false
+      default: "us-west-2"
+    - variable: "AWS_BUCKET"
+      description: "Amazon AWS bucket name for profile backed data"
+      label: "AWS_BUCKET"
+      type: "string"
+      required: false
+      default: "profile-bucket"
+    - variable: "JAUTHD_SMTPFROM"
+      description: "email from address for email verification, password recovery, reset, forgot, etc..."
+      label: "email from"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "JAUTHD_SMTPSERVER"
+      description: "smtp server name"
+      label: "email server name"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "JAUTHD_SMTPUSER"
+      description: "smtp server login"
+      label: "email server login"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "JAUTHD_SMTPPASS"
+      description: "smtp server password"
+      label: "email server password"
+      type: "string"
+      required: true
+      default: ""
+    - variable: "JAUTHD_SMTPPORT"
+      description: "smtp server port"
+      label: "email server port"
+      type: "int"
+      required: true
+      default: "587"
+    - variable: "NODE_COOKIE_KEYS"
+      description: "node cookie encryptiong key"
+      label: "cookie key"
+      type: "string"
+      required: false
+    - variable: "JAUTHD_EMAILVERIFY"
+      description: "enable email verification"
+      label: "enable email verification"
+      type: "boolean"
+      required: false
+      default: true
+    - variable: "JAUTHD_APP"
+      description: "you can proxy all /app to some url"
+      label: "proxy url"
+      type: "string"
+      required: false
+      default: "http://noogen.net"
+    - variable: "GOOGLE_SECRET"
+      description: "social sso: google app secret"
+      label: "google secret"
+      type: "string"
+      required: false
+      default: ""
+    - variable: "FACEBOOK_SECRET"
+      description: "social sso: facebook app secret"
+      label: "facebook secret"
+      type: "string"
+      required: false
+      default: ""
+jauthd:
+
