@@ -32,7 +32,7 @@
       required: true
       default: |
         elasticsearch {
-          host => ["elasticsearch"]
+          hosts => ["elasticsearch"]
           index => "logstash-%{+YYYY.MM.dd}"
           flush_size => 5000
           workers => 4
