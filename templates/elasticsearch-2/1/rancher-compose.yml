@@ -16,16 +16,16 @@
       default: 80
       required: true
     - variable: "kopf_login"
-      label: "kopf basic auth login"
-      description: "Secure KOPF and ES with basic credentials"
+      label: "kopf user name"
+      description: "Secure KOPF with basic credentials"
       type: "string"
-      default: "eslogin"
+      default: "user"
       required: true
     - variable: "kopf_pass"
-      label: "kopf basic auth password"
-      description: "Secure KOPF and ES with basic credentials"
+      label: "kopf password"
+      description: "use crypt() here - http://aspirine.org/htpasswd_en.html"
       type: "string"
-      default: "espass"
+      default: "must be the encrypted value"
       required: true
     - variable: "kopf_host_label"
       description: "Hosts with label to deploy KOPF"
