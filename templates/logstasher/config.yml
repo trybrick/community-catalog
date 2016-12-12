@@ -1,0 +1,5 @@
+name: Logstasher
+description: |
+  Centralize data processing of all types
+version: 2.4.1-rancher1
+category: ELK
