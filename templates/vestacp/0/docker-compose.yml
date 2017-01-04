@@ -5,6 +5,17 @@ vestacp:
   stdin_open: true
   volumes_from:
     - vestacp-datavolume
+  ports:
+    - "2222:22"
+    - "8083:8083"
+    - "5432:5432"
+    - "3306:3306"
+    - "443:443"
+    - "25:25"
+    - "993:993"
+    - "110:110"
+    - "53:53"
+    - "54:54"
   labels:
     io.rancher.sidekicks: vestacp-datavolume
     io.rancher.container.hostname_override: container_name
