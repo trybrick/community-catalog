@@ -1,14 +1,14 @@
 .catalog:
-  name: "MongoDB"
+  name: "VestaCP"
   version: "v0.1"
-  description: "Single MongoDB database"
-  uuid: MongoDB-0
+  description: "Vesta Control Panel - like CPanel"
+  uuid: VestaCP-0
   minimum_rancher_version: v0.51.0
   questions:
     - variable: "host_label"
-      description: "Hosts with label to deploy mongo"
+      description: "Hosts with label to deploy to"
       label: "Host label:"
       required: true
-      default: "dock=1"
+      default: "host=1"
       type: "string"
-mongo:
+vestacp:

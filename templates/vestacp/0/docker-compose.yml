@@ -1,21 +1,21 @@
-mongo:
-  image: mongo
+vestacp:
+  image: brickinc/vestacp
   restart: always
   tty: true
   stdin_open: true
   volumes_from:
-    - mongo-datavolume
+    - vestacp-datavolume
   labels:
-    io.rancher.sidekicks: mongo-datavolume
+    io.rancher.sidekicks: vestacp-datavolume
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:host_label: ${host_label}
 
-mongo-datavolume:
+vestacp-datavolume:
   net: none
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - /data/db
+    - /vesta
   entrypoint: /bin/true
   image: busybox

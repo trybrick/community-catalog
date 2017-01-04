@@ -1,5 +1,0 @@
-name: jauthd
-description: |
-  JWToken Auth server
-version: 1.0.2
-category: Security
