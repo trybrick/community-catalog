@@ -1,5 +1,5 @@
 vestacp:
-  image: brickinc/vestacp:0.2.0
+  image: brickinc/vestacp:0.3.1
   restart: always
   tty: true
   stdin_open: true
@@ -16,6 +16,7 @@ vestacp:
     - "110:110"
     - "53:53"
     - "54:54"
+    - "80:80"
   labels:
     io.rancher.sidekicks: vestacp-datavolume
     io.rancher.container.hostname_override: container_name
