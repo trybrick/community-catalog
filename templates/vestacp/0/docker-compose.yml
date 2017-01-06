@@ -1,5 +1,5 @@
 vestacp:
-  image: brickinc/vestacp:0.3.1
+  image: brickinc/vestacp:0.4.0
   restart: always
   tty: true
   stdin_open: true
