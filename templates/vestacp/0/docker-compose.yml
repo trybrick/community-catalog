@@ -7,12 +7,16 @@ vestacp:
     - vestacp-datavolume
   ports:
     - "2222:22"
-    - "8083:8083"
-    - "5432:5432"
-    - "3306:3306"
-    - "443:443"
     - "25:25"
+    - "53:53"
+    - "54:54"
     - "80:80"
+    - "110:110"
+    - "443:443"
+    - "993:993"
+    - "3306:3306"
+    - "5432:5432"
+    - "8083:8083"
   labels:
     io.rancher.sidekicks: vestacp-datavolume
     io.rancher.container.hostname_override: container_name
@@ -26,5 +30,6 @@ vestacp-datavolume:
   volumes:
     - /vesta
     - /home
+    - /backup
   entrypoint: /bin/true
   image: busybox
