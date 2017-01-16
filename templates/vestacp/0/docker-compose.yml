@@ -1,8 +1,9 @@
 vestacp:
-  image: niiknow/vestacp:0.5.4
+  image: niiknow/vestacp:0.6.0
   restart: always
   tty: true
   stdin_open: true
+  privileged: true
   volumes_from:
     - vestacp-datavolume
   ports:
