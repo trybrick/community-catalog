@@ -1,5 +1,5 @@
 vestacp:
-  image: niiknow/vestacp:0.7.8
+  image: niiknow/vestacp:0.7.16
   restart: always
   tty: true
   stdin_open: true
