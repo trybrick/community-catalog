@@ -1,6 +1,7 @@
 vestacp:
   image: niiknow/vestacp:0.8.6
   tty: true
+  privileged: true
   stdin_open: true
   volumes_from:
     - vestacp-datavolume
