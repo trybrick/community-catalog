@@ -3,7 +3,6 @@ vestacp:
   restart: always
   tty: true
   stdin_open: true
-  privileged: true
   volumes_from:
     - vestacp-datavolume
   ports:
