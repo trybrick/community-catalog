@@ -1,5 +1,5 @@
 vestacp:
-  image: niiknow/vestacp:0.8.5
+  image: niiknow/vestacp:0.8.6
   restart: always
   tty: true
   stdin_open: true
@@ -13,6 +13,7 @@ vestacp:
     - "5432:5432"
     - "8083:8083"
   labels:
+    io.rancher.container.pull_image: always
     io.rancher.sidekicks: vestacp-datavolume
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:host_label: ${host_label}
