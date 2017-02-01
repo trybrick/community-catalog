@@ -1,5 +1,5 @@
 vestacp:
-  image: niiknow/vestacp:0.8.16
+  image: niiknow/vestacp:0.8.19
   tty: true
   stdin_open: true
   volumes_from:
