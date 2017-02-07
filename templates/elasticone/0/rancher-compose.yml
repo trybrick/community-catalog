@@ -1,0 +1,12 @@
+.catalog:
+  name: "Elasticsearch"
+  version: "1.7.6-rancher1"
+  description: "Elasticsearch independenty server"
+  questions:
+    - variable: "host_label"
+      description: "Hosts with label to deploy to"
+      label: "Host label:"
+      required: true
+      default: "host=1"
+      type: "string"
+elasticsearch:

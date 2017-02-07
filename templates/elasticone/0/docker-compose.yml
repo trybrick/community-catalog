@@ -1,0 +1,24 @@
+elasticsearch:
+  image: elasticsearch:1.7.6
+  restart: always
+  tty: true
+  stdin_open: true
+  volumes_from:
+    - elasticsearch-datavolume
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  labels:
+    io.rancher.sidekicks: elasticsearch-datavolume
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label: ${host_label}
+
+elasticsearch-datavolume:
+  net: none
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.container.start_once: true
+  volumes:
+    - /usr/share/elasticsearch/data
+  entrypoint: /bin/true
+  image: devalx/docker-teamspeak3:latest
