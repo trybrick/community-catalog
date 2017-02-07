@@ -1,5 +1,5 @@
 elasticsearch:
-  image: elasticsearch:1.7.6
+  image: elasticsearch:1.7.4
   restart: always
   tty: true
   stdin_open: true

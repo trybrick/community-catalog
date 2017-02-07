@@ -1,5 +1,5 @@
 name: Elasticsearch 1.x
 description: |
   Elasticsearch independent server
-version: 1.7.6-rancher1
+version: 1.7.4-rancher1
 category: ELK
