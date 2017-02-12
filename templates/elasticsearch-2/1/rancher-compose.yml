@@ -3,7 +3,7 @@
   version: "2.4.2-rancher1"
   description: "Elasticsearch. You know, for search"
   questions:
-    - variable: cluster_name
+    - variable: "cluster_name"
       description: "Unique name to assign to your Elasticsearch cluster."
       label: "Cluster Name"
       type: "string"

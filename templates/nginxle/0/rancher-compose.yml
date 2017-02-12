@@ -9,4 +9,35 @@
       required: true
       default: "host=1"
       type: "string"
+    - variable: "EMAIL"
+      description: "email for letsencrypt"
+      label: "EMAIL"
+      type: "string"
+      required: false
+    - variable: "DOMAINS"
+      label: "DOMAINS"
+      description: "domains for letsencrypt (space separated)"
+      type: "string"
+      required: false
+    - variable: "AWS_ACCESS_KEY_ID"
+      label: "AWS_ACCESS_KEY_ID "
+      description: "aws access key for doing backup"
+      type: "string"
+      required: false
+    - variable: "AWS_SECRET_ACCESS_KEY"
+      label: "AWS_SECRET_ACCESS_KEY "
+      description: "aws access secret for doing backup"
+      type: "string"
+      required: false
+    - variable: "AWS_SECRET_ACCESS_KEY"
+      label: "AWS_SECRET_ACCESS_KEY "
+      description: "aws access secret for doing backup"
+      type: "string"
+      required: false
+    - variable: "AWS_DEFAULT_REGION"
+      label: "AWS_DEFAULT_REGION "
+      description: "aws default region"
+      type: "string"
+      required: false
+      default: "us-west-2"
 nginxle:

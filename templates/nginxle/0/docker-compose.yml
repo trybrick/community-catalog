@@ -8,6 +8,12 @@ nginxle:
   ports:
     - "80:80"
     - "443:443"
+  environment:
+    EMAIL: "${EMAIL}"
+    DOMAINS: "${DOMAINS}"
+    AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+    AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+    AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
   labels:
     io.rancher.sidekicks: nginxle-datavolume
     io.rancher.container.hostname_override: container_name
