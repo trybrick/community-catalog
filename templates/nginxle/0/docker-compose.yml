@@ -1,24 +1,25 @@
-elasticsearch:
-  image: elasticsearch:1.7.4
+nginxle:
+  image: niiknow/nginx-letsencrypt:1.0.0
   restart: always
   tty: true
   stdin_open: true
   volumes_from:
-    - elasticsearch-datavolume
+    - nginxle-datavolume
   ports:
-    - "9200:9200"
-    - "9300:9300"
+    - "80:80"
+    - "443:443"
   labels:
-    io.rancher.sidekicks: elasticsearch-datavolume
+    io.rancher.sidekicks: nginxle-datavolume
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:host_label: ${host_label}
 
-elasticsearch-datavolume:
+nginxle-datavolume:
   net: none
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
   volumes:
-    - /usr/share/elasticsearch/data
+    - /app
+    - /backup
   entrypoint: /bin/true
   image: busybox

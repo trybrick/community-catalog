@@ -1,0 +1,12 @@
+.catalog:
+  name: "nginx letsencrypt"
+  version: "v1.0.0"
+  description: "nginx with letsencrypt"
+  questions:
+    - variable: "host_label"
+      description: "Hosts with label to deploy to"
+      label: "Host label:"
+      required: true
+      default: "host=1"
+      type: "string"
+nginxle:

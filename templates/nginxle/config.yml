@@ -1,0 +1,5 @@
+name: nginxle 1.x
+description: |
+  nginx with letsencrypt
+version: v1.0.0
+category: Hosting
