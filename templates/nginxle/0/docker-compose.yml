@@ -1,5 +1,5 @@
 nginxle:
-  image: niiknow/nginx-letsencrypt:1.0.0
+  image: niiknow/nginx-letsencrypt:1.0.1
   restart: always
   tty: true
   stdin_open: true
