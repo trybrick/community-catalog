@@ -33,6 +33,12 @@
       required: true
       default: "labelname=value"
       type: "string"
+    - variable: "es_plugins"
+      description: "Elasticsearch plugins"
+      label: "Elasticsearch plugins:"
+      required: true
+      default: "mobz/elasticsearch-head appbaseio/dejavu cloud-aws"
+      type: "string"
 elasticsearch-masters:
   metadata:
     elasticsearch:

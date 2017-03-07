@@ -1,8 +1,10 @@
 elasticsearch-masters:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: brickinc/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-master,elasticsearch-datavolume-masters
+  environment:
+    PLUGINS: '${es_plugins}'
   volumes_from:
     - elasticsearch-datavolume-masters
 elasticsearch-datavolume-masters:
@@ -29,11 +31,13 @@ elasticsearch-base-master:
 
 
 elasticsearch-datanodes:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: brickinc/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-datanode,elasticsearch-datavolume-datanode
     io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  environment:
+    PLUGINS: '${es_plugins}'
   links:
     - elasticsearch-masters:es-masters
   volumes_from:
@@ -64,10 +68,12 @@ elasticsearch-base-datanode:
 
 
 elasticsearch-clients:
-  image: rancher/elasticsearch-conf:v0.5.0
+  image: brickinc/elasticsearch-conf:v0.5.0
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-clients,elasticsearch-datavolume-clients
+  environment:
+    PLUGINS: '${es_plugins}'
   links:
     - elasticsearch-masters:es-masters
   volumes_from:
