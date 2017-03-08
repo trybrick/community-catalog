@@ -12,6 +12,8 @@ elasticsearch-datavolume-masters:
     elasticsearch.datanode.config.version: '1'
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
+  environment:
+    PLUGINS: '${es_plugins}'
   volumes:
     - /usr/share/elasticsearch
     - /opt/rancher/bin
@@ -21,6 +23,8 @@ elasticsearch-base-master:
   labels:
     elasticsearch.master.config.version: '1'
     io.rancher.container.hostname_override: container_name
+  environment:
+    PLUGINS: '${es_plugins}'
   image: elasticsearch:2.4.4
   net: "container:elasticsearch-masters"
   volumes_from:
@@ -46,6 +50,8 @@ elasticsearch-datavolume-datanode:
     elasticsearch.datanode.config.version: '1'
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
+  environment:
+    PLUGINS: '${es_plugins}'
   volumes:
     - /usr/share/elasticsearch
     - /opt/rancher/bin
@@ -55,6 +61,8 @@ elasticsearch-base-datanode:
   labels:
     elasticsearch.datanode.config.version: '1'
     io.rancher.container.hostname_override: container_name
+  environment:
+    PLUGINS: '${es_plugins}'
   image: elasticsearch:2.4.4
   links:
     - elasticsearch-masters:es-masters
@@ -81,6 +89,8 @@ elasticsearch-datavolume-clients:
     elasticsearch.datanode.config.version: '1'
     io.rancher.container.hostname_override: container_name
     io.rancher.container.start_once: true
+  environment:
+    PLUGINS: '${es_plugins}'
   volumes:
     - /usr/share/elasticsearch
     - /opt/rancher/bin
@@ -90,6 +100,8 @@ elasticsearch-base-clients:
   labels:
     elasticsearch.client.config.version: '1'
     io.rancher.container.hostname_override: container_name
+  environment:
+    PLUGINS: '${es_plugins}'
   image: elasticsearch:2.4.4
   volumes_from:
     - elasticsearch-datavolume-clients
