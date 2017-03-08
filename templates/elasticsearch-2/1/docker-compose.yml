@@ -15,7 +15,8 @@ elasticsearch-datavolume-masters:
   environment:
     PLUGINS: '${es_plugins}'
   volumes:
-    - /usr/share/elasticsearch
+    - /usr/share/elasticsearch/data
+    - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4.4
@@ -53,7 +54,8 @@ elasticsearch-datavolume-datanode:
   environment:
     PLUGINS: '${es_plugins}'
   volumes:
-    - /usr/share/elasticsearch
+    - /usr/share/elasticsearch/data
+    - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4.4
@@ -92,7 +94,8 @@ elasticsearch-datavolume-clients:
   environment:
     PLUGINS: '${es_plugins}'
   volumes:
-    - /usr/share/elasticsearch
+    - /usr/share/elasticsearch/data
+    - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
   image: elasticsearch:2.4.4
