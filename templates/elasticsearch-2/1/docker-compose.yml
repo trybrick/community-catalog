@@ -1,5 +1,5 @@
 elasticsearch-masters:
-  image: brickinc/elasticsearch-conf:v0.5.2
+  image: brickinc/elasticsearch-conf:v0.5.3
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-master,elasticsearch-datavolume-masters
@@ -35,7 +35,7 @@ elasticsearch-base-master:
 
 
 elasticsearch-datanodes:
-  image: brickinc/elasticsearch-conf:v0.5.2
+  image: brickinc/elasticsearch-conf:v0.5.3
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-datanode,elasticsearch-datavolume-datanode
@@ -76,7 +76,7 @@ elasticsearch-base-datanode:
 
 
 elasticsearch-clients:
-  image: brickinc/elasticsearch-conf:v0.5.2
+  image: brickinc/elasticsearch-conf:v0.5.3
   labels:
     io.rancher.container.hostname_override: container_name
     io.rancher.sidekicks: elasticsearch-base-clients,elasticsearch-datavolume-clients
@@ -114,7 +114,7 @@ elasticsearch-base-clients:
 
 
 kopf:
-  image: brickinc/kopf:v0.5.1
+  image: brickinc/kopf:v0.5.2
   ports:
     - "${kopf_port}:80"
   environment:
