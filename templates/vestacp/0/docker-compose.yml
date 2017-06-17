@@ -1,5 +1,5 @@
 vestacp:
-  image: niiknow/vestacp:0.8.30
+  image: niiknow/vestacp:0.8.39
   tty: true
   stdin_open: true
   volumes_from:
@@ -8,8 +8,6 @@ vestacp:
     - "2222:22"
     - "80:80"
     - "443:443"
-    - "3306:3306"
-    - "5432:5432"
     - "8083:8083"
   labels:
     io.rancher.container.pull_image: always
