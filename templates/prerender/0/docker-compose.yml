@@ -16,24 +16,6 @@ prerender:
     BASIC_AUTH_USERNAME: "${BASIC_AUTH_USERNAME}"
     BASIC_AUTH_PASSWORD: "${BASIC_AUTH_PASSWORD}"
     PRERENDER_NUM_WORKERS: ${PRERENDER_NUM_WORKERS}
-  health_check:
-    # Which port to perform the check against
-    port: 3000
-    # For TCP, request_line needs to be '' or not shown
-    # TCP Example:
-    # request_line: ''
-    request_line: GET /healthcheck HTTP/1.0
-    # Interval is measured in milliseconds
-    interval: 2000
-    initializing_timeout: 60000
-    reinitializing_timeout: 60000
-    unhealthy_threshold: 3
-    # Strategy for what to do when unhealthy
-    # In this service, no action will occur when a container is found unhealthy
-    strategy: recreate
-    healthy_threshold: 2
-    # Response timeout is measured in milliseconds
-    response_timeout: 2000
 
 redis:
   image: redis:3.2.9-alpine
@@ -42,13 +24,3 @@ redis:
   stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name
-  health_check:
-    port: 6379
-    request_line: ''
-    interval: 2000
-    initializing_timeout: 60000
-    reinitializing_timeout: 60000
-    unhealthy_threshold: 3
-    strategy: recreate
-    healthy_threshold: 2
-    response_timeout: 2000
