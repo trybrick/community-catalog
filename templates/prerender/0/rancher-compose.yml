@@ -1,0 +1,37 @@
+.catalog:
+  name: "prerender"
+  version: "v0.1"
+  description: "prerender.io spa application"
+  questions:
+    - variable: "REDIS_URL"
+      description: "Redis connection string."
+      label: "REDIS_URL"
+      default: "redis://redis:6379/0"
+      type: "string"
+      required: false
+    - variable: "PAGE_TTL"
+      description: "TTL on keys set in seconds.  Default to 1 day."
+      label: "PAGE_TTL"
+      default: 86400
+      type: "int"
+      required: false
+    - variable: "BASIC_AUTH_USERNAME"
+      description: "Allow for basic auth."
+      label: "BASIC_AUTH_USERNAME"
+      default: ""
+      type: "string"
+      required: false
+    - variable: "BASIC_AUTH_PASSWORD"
+      description: "Password for basic auth."
+      label: "BASIC_AUTH_PASSWORD"
+      default: ""
+      type: "string"
+      required: false
+    - variable: "PRERENDER_NUM_WORKERS"
+      description: "Number of workers"
+      label: "PRERENDER_NUM_WORKERS"
+      default: 4
+      type: "int"
+      required: false
+
+prerender:
