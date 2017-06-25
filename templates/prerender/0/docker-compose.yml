@@ -1,5 +1,8 @@
-kong:
+prerender:
   image: niiknow/prerender-redis:1.0.1
+  labels:
+    # Make prerender a global service
+    io.rancher.scheduler.global: 'true'
   links:
     - redis:redis
   restart: always
