@@ -43,7 +43,7 @@ prerender:
     # request_line: ''
     request_line: GET /healthcheck HTTP/1.0
     # Interval is measured in milliseconds
-    interval: 2000
+    interval: 6000
     initializing_timeout: 60000
     reinitializing_timeout: 60000
     unhealthy_threshold: 3
@@ -52,7 +52,7 @@ prerender:
     strategy: recreate
     healthy_threshold: 2
     # Response timeout is measured in milliseconds
-    response_timeout: 2000
+    response_timeout: 6000
 
 redis:
   health_check:
