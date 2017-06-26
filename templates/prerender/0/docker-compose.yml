@@ -6,8 +6,6 @@ prerender:
   links:
     - redis:redis
   restart: always
-  ports:
-    - "4002:3000"
   environment:
     REDIS_URL: "${REDIS_URL}"
     PAGE_TTL: ${PAGE_TTL}
