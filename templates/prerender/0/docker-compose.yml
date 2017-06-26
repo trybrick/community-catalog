@@ -18,7 +18,7 @@ prerender:
     PRERENDER_NUM_WORKERS: ${PRERENDER_NUM_WORKERS}
 
 redis:
-  image: redis:3.2.9-alpine
+  image: niiknow/redis:0.0.1
   restart: always
   tty: true
   stdin_open: true
