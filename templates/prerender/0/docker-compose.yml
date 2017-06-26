@@ -16,7 +16,7 @@ prerender:
     PRERENDER_NUM_WORKERS: ${PRERENDER_NUM_WORKERS}
 
 redis:
-  image: niiknow/redis:0.0.3
+  image: niiknow/redis:0.0.4
   restart: always
   labels:
     io.rancher.container.hostname_override: container_name
