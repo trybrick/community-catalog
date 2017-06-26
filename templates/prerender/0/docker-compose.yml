@@ -6,8 +6,6 @@ prerender:
   links:
     - redis:redis
   restart: always
-  tty: true
-  stdin_open: true
   ports:
     - "4002:3000"
   environment:
@@ -20,7 +18,5 @@ prerender:
 redis:
   image: niiknow/redis:0.0.3
   restart: always
-  tty: true
-  stdin_open: true
   labels:
     io.rancher.container.hostname_override: container_name

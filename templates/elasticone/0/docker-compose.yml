@@ -1,8 +1,6 @@
 elasticsearch:
   image: elasticsearch:1.7.6
   restart: always
-  tty: true
-  stdin_open: true
   volumes_from:
     - elasticsearch-datavolume
   ports:

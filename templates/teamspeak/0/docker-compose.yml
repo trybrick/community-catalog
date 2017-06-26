@@ -1,8 +1,6 @@
 teamspeak:
   image: devalx/docker-teamspeak3
   restart: always
-  tty: true
-  stdin_open: true
   volumes_from:
     - teamspeak-datavolume
   ports:

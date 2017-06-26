@@ -1,7 +1,5 @@
 vestacp:
-  image: niiknow/vestacp:0.8.46
-  tty: true
-  stdin_open: true
+  image: niiknow/vestacp:0.8.48
   volumes_from:
     - vestacp-datavolume
   ports:

@@ -1,8 +1,6 @@
 nginxle:
   image: niiknow/nginx-letsencrypt:1.0.4
   restart: always
-  tty: true
-  stdin_open: true
   volumes_from:
     - nginxle-datavolume
   ports:
