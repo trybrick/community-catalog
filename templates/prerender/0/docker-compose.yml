@@ -1,5 +1,5 @@
 prerender:
-  image: niiknow/prerender-redis:1.0.3
+  image: niiknow/prerender-redis:1.0.4
   labels:
     # Make prerender a global service
     io.rancher.scheduler.global: 'true'
