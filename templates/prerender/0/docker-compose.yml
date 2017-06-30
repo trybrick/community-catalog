@@ -3,13 +3,13 @@ lb-prerender:
   ports:
     - 4001:3000
   links:
-  - prerender:prerender
+    - prerender:prerender
   labels:
     # Put load balancer containers on hosts with label
     io.rancher.scheduler.affinity:host_label: ${LB_HOST}
 
 prerender:
-  image: niiknow/prerender-redis:1.0.5
+  image: niiknow/prerender-redis:1.0.6
   labels:
     # Make prerender a global service
     io.rancher.scheduler.global: 'true'
@@ -28,6 +28,3 @@ redis:
   restart: always
   labels:
     io.rancher.container.hostname_override: container_name
-  sysctls:                                                                     
-    - net.core.somaxconn=511
-    - vm.overcommit_memory=1  
