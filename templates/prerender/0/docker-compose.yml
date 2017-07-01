@@ -1,5 +1,15 @@
+lb-prerender:
+  image: rancher/load-balancer-service
+  ports:
+    - 4001:3000
+  links:
+    - prerender:prerender
+  labels:
+    # Put load balancer containers on hosts with label
+    io.rancher.scheduler.affinity:host_label: ${LB_HOST}
+
 prerender:
-  image: niiknow/prerender-redis:1.0.6
+  image: niiknow/prerender-redis:1.0.7
   labels:
     # Make prerender a global service
     io.rancher.scheduler.global: 'true'

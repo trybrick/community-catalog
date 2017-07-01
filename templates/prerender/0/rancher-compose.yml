@@ -2,7 +2,13 @@
   name: "prerender"
   version: "v0.1"
   description: "prerender.io spa application"
-  questions:
+  questions:    
+    - variable: "LB_HOST"
+      description: "load balancer host"
+      label: "LB_HOST"
+      default: "cloud=9"
+      type: "string"
+      required: true
     - variable: "REDIS_URL"
       description: "Redis connection string."
       label: "REDIS_URL"
