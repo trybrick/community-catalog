@@ -9,18 +9,12 @@
       default: "cloud=9"
       type: "string"
       required: true
-    - variable: "REDIS_URL"
-      description: "Redis connection string."
-      label: "REDIS_URL"
-      default: "redis://redis:6379/0"
+    - variable: "ES_URL"
+      description: "Elasticsearch URL"
+      label: "ES_URL"
+      default: "http://elasticsearch-clients.elasticsearch-2-prd.rancher.internal:9200"
       type: "string"
       required: true
-    - variable: "PAGE_TTL"
-      description: "TTL on keys set in seconds.  Default to 1 day."
-      label: "PAGE_TTL"
-      default: 86400
-      type: "int"
-      required: false
     - variable: "BASIC_AUTH_USERNAME"
       description: "Allow for basic auth."
       label: "BASIC_AUTH_USERNAME"
@@ -59,15 +53,3 @@ prerender:
     healthy_threshold: 2
     # Response timeout is measured in milliseconds
     response_timeout: 6000
-
-redis:
-  health_check:
-    port: 6379
-    request_line: ''
-    interval: 2000
-    initializing_timeout: 60000
-    reinitializing_timeout: 60000
-    unhealthy_threshold: 3
-    strategy: recreate
-    healthy_threshold: 2
-    response_timeout: 2000
