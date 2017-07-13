@@ -9,7 +9,7 @@ lb-prerender:
     io.rancher.scheduler.affinity:host_label: ${LB_HOST}
 
 prerender:
-  image: brickinc/digitalstore-seo:1.0.4
+  image: brickinc/digitalstore-seo:1.1.0
   labels:
     # Make prerender a global service
     io.rancher.scheduler.global: 'true'
