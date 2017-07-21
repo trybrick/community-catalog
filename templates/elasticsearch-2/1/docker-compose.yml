@@ -19,14 +19,14 @@ elasticsearch-datavolume-masters:
     - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
 elasticsearch-base-master:
   labels:
     elasticsearch.master.config.version: '1'
     io.rancher.container.hostname_override: container_name
   environment:
     PLUGINS: '${es_plugins}'
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
   net: "container:elasticsearch-masters"
   volumes_from:
     - elasticsearch-datavolume-masters
@@ -58,14 +58,14 @@ elasticsearch-datavolume-datanode:
     - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
 elasticsearch-base-datanode:
   labels:
     elasticsearch.datanode.config.version: '1'
     io.rancher.container.hostname_override: container_name
   environment:
     PLUGINS: '${es_plugins}'
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
   links:
     - elasticsearch-masters:es-masters
   entrypoint:
@@ -98,14 +98,14 @@ elasticsearch-datavolume-clients:
     - /usr/share/elasticsearch/config
     - /opt/rancher/bin
   entrypoint: /bin/true
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
 elasticsearch-base-clients:
   labels:
     elasticsearch.client.config.version: '1'
     io.rancher.container.hostname_override: container_name
   environment:
     PLUGINS: '${es_plugins}'
-  image: elasticsearch:2.4.4-alpine
+  image: elasticsearch:2.4.5-alpine
   volumes_from:
     - elasticsearch-datavolume-clients
   net: "container:elasticsearch-clients"
@@ -114,7 +114,7 @@ elasticsearch-base-clients:
 
 
 kopf:
-  image: brickinc/kopf:v0.5.2
+  image: brickinc/kopf:v0.5.3
   ports:
     - "${kopf_port}:80"
   environment:
