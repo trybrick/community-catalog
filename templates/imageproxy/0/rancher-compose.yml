@@ -12,6 +12,6 @@
     - variable: "SERVER_CONF"
       description: "Server Conf URL"
       label: "SERVER_CONF"
-      default: "https://gist.github.com/noogen/538c7dbb936cfbf54cd17813515fc012"
+      default: "https://gist.githubusercontent.com/noogen/538c7dbb936cfbf54cd17813515fc012/raw/f83bd14660a9e86ee95ae27eb71fe909c1daf513/brx-image-proxy-server.conf"
       type: "string"
       required: true
