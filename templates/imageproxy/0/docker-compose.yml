@@ -1,0 +1,18 @@
+lb-imageproxy:
+  image: rancher/load-balancer-service
+  ports:
+    - 4594:80
+  links:
+    - imageproxy:imageproxy
+  labels:
+    # Put load balancer containers on hosts with label
+    io.rancher.scheduler.affinity:host_label: ${LB_HOST}
+
+imageproxy:
+  image: niiknow/nginx-image-proxy:1.6.3
+  labels:
+    # Make prerender a global service
+    io.rancher.scheduler.global: 'true'
+  restart: always
+  environment:
+    SERVER_CONF: "${SERVER_CONF}"

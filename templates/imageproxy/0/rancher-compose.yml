@@ -1,0 +1,17 @@
+.catalog:
+  name: "imageproxy"
+  version: "v0.1"
+  description: "on the fly image resize and compression"
+  questions:    
+    - variable: "LB_HOST"
+      description: "load balancer host"
+      label: "LB_HOST"
+      default: "host=2"
+      type: "string"
+      required: true
+    - variable: "SERVER_CONF"
+      description: "Server Conf URL"
+      label: "SERVER_CONF"
+      default: "https://gist.github.com/noogen/538c7dbb936cfbf54cd17813515fc012"
+      type: "string"
+      required: true

@@ -1,0 +1,5 @@
+name: imageproxy
+description: |
+  on the fly image resize and compression
+version: v0.1
+category: Applications

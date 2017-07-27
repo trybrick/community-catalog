@@ -6,7 +6,7 @@
     - variable: "LB_HOST"
       description: "load balancer host"
       label: "LB_HOST"
-      default: "cloud=9"
+      default: "host=2"
       type: "string"
       required: true
     - variable: "ES_URL"
