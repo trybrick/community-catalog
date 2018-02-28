@@ -43,7 +43,7 @@ prerender:
     # request_line: ''
     request_line: GET /healthcheck HTTP/1.0
     # Interval is measured in milliseconds
-    interval: 6000
+    interval: 60000
     initializing_timeout: 60000
     reinitializing_timeout: 60000
     unhealthy_threshold: 3
