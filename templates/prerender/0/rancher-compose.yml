@@ -1,6 +1,6 @@
 .catalog:
   name: "prerender"
-  version: "v0.1"
+  version: "v0.2"
   description: "prerender.io spa application"
   questions:    
     - variable: "LB_HOST"
